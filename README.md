@@ -39,6 +39,20 @@ cd e-Paper/RaspberryPi_JetsonNano/python/
 sudo python3 setup.py install
 ```
 
+Alternative:
+```bash
+pip wheel --no-deps -w dist .
+```
+This replaced my old equivalent code:
+
+```bash
+python setup.py bdist_wheel
+```
+
+Note that the pip wheel command creates the wheel into your current directory by default, which is why I specify -w/--wheel_dir to match the old behavior of using the ./dist directory.
+
+I also specify --no-deps so pip does not download the wheel files of all dependencies.
+
 You can check if the display is working by running the test example:
 ```bash
 cd e-Paper/RaspberryPi_JetsonNano/python/
